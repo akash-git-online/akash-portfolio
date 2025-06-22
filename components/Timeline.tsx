@@ -9,11 +9,9 @@ import {
   SiPython,
   SiTerraform,
   SiAmazon,
-  SiAzuredevops,
   SiDocker,
   SiDatabricks,
   SiSnowflake,
-  SiPowerbi,
   SiOracle,
   SiGitlab, // Added for completeness
 } from 'react-icons/si'
@@ -31,10 +29,8 @@ const iconMap: { [key: string]: React.ElementType<LucideProps> } = {
 const skillIconMap: { [key: string]: React.ElementType } = {
   PySpark: SiPython,
   SQL: GrMysql,
-  'Power BI': SiPowerbi,
-  ADF: SiAzuredevops,
+  'Power BI': Code2,
   Databricks: SiDatabricks,
-  Synapse: SiAzuredevops,
   Snowflake: SiSnowflake,
   Oracle: SiOracle,
   Terraform: SiTerraform,
