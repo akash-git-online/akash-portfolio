@@ -44,7 +44,9 @@ export default function AuthorLayout({ children, content }: Props) {
 
         {/* --- Right Column (Scrollable Content) --- */}
         {/* The children passed from app/page.tsx will go here */}
-        <div className="prose dark:prose-dark max-w-none pt-8 xl:col-span-2">{children}</div>
+        <div className="prose dark:prose-dark max-w-none pt-8 xl:col-span-2 dark:[&_p]:text-gray-100 dark:[&_strong]:text-white">
+          {children}
+        </div>
       </div>
     </div>
   )
