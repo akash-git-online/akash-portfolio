@@ -8,18 +8,18 @@ export const skillsData = [
   { name: 'Bash', iconClass: 'devicon-bash-plain', imageSrc: null },
 
   // Cloud & Data Warehousing
-  { name: 'Azure', iconClass: 'devicon-azure-plain', imageSrc: null },
+  { name: 'Microsoft Azure', iconClass: 'devicon-azure-plain', imageSrc: null },
   { name: 'Snowflake', iconClass: null, imageSrc: '/static/images/icons/snowflake-icon.svg' },
-  { name: 'Databricks', iconClass: 'devicon-databricks-original', imageSrc: null },
+  { name: 'Databricks', iconClass: null , imageSrc: '/static/images/icons/databricks.png' },
 
   // Databases
   { name: 'Oracle', iconClass: 'devicon-oracle-original', imageSrc: null },
   { name: 'SQL Server', iconClass: 'devicon-microsoftsqlserver-plain', imageSrc: null },
   { name: 'PostgreSQL', iconClass: 'devicon-postgresql-plain', imageSrc: null },
-  { name: 'Cosmos DB', iconClass: 'devicon-azure-plain', imageSrc: null },
+  { name: 'Cosmos DB', iconClass: null, imageSrc: '/static/images/icons/Cosmos_DB.png' },
 
   // DevOps & Orchestration
-  { name: 'dbt', iconClass: 'devicon-dbt-plain', imageSrc: null },
+  { name: 'dbt', iconClass: null, imageSrc: '/static/images/icons/dbt.png' },
   { name: 'Docker', iconClass: 'devicon-docker-plain', imageSrc: null },
   { name: 'Azure DevOps', iconClass: 'devicon-azure-plain', imageSrc: null },
   { name: 'GitHub Actions', iconClass: 'devicon-github-original', imageSrc: null },
@@ -28,7 +28,7 @@ export const skillsData = [
 
   // BI & Visualization
   { name: 'Power BI', iconClass: null , imageSrc:'/static/images/icons/Power-BI-Logo.png' },
-  { name: 'Tableau', iconClass: 'devicon-tableau-plain', imageSrc: null },
+  { name: 'Tableau', iconClass: null, imageSrc: '/static/images/icons/tableau-software.svg' },
 
   // Data Governance & Quality
   {
