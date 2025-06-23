@@ -1,10 +1,11 @@
+// app/layout.tsx
+
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
 import { Space_Grotesk } from 'next/font/google'
-//import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { Analytics } from '@vercel/analytics/react'
+import { Analytics } from '@vercel/analytics/react' // 1. We keep the official Vercel import
 import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
@@ -97,7 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
+          {/* 2. The old Pliny analytics component that was causing the error has been REMOVED from here. */}
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Footer />
           </SectionContainer>
         </ThemeProviders>
+        <Analytics /> {/* 3. The official Vercel component is ADDED here, with no props. */}
       </body>
     </html>
   )
