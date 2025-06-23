@@ -6,7 +6,7 @@ import Image from '@/components/Image' // Import the Next.js Image component for
 const Certifications = () => {
   return (
     <div className="w-full">
-      <h2 className="mb-6 text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100">
+      <h2 className="mb-6 text-2xl leading-9 font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
         Certifications
       </h2>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">

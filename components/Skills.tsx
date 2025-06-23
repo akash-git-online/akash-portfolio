@@ -6,7 +6,7 @@ import Image from '@/components/Image'
 const Skills = () => {
   return (
     <div className="w-full">
-      <h2 className="mb-8 text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-3xl sm:leading-10">
+      <h2 className="mb-8 text-2xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-3xl sm:leading-10 dark:text-gray-100">
         My Skills
       </h2>
       {/* This flex container now has smaller gaps */}
