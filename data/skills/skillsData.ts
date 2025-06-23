@@ -3,13 +3,13 @@
 export const skillsData = [
   // Programming & Scripting
   { name: 'Python', iconClass: 'devicon-python-plain', imageSrc: null },
-  { name: 'PySpark', iconClass: 'devicon-apachespark-original', imageSrc: null },
+  { name: 'Apache Spark', iconClass: 'devicon-apachespark-original', imageSrc: '/static/images/icons/apache-spark.svg' },
   { name: 'pandas', iconClass: 'devicon-pandas-original', imageSrc: null },
   { name: 'Bash', iconClass: 'devicon-bash-plain', imageSrc: null },
 
   // Cloud & Data Warehousing
   { name: 'Azure', iconClass: 'devicon-azure-plain', imageSrc: null },
-  { name: 'Snowflake', iconClass: 'devicon-snowflake-original', imageSrc: null },
+  { name: 'Snowflake', iconClass: null, imageSrc: '/static/images/icons/snowflake-icon.svg' },
   { name: 'Databricks', iconClass: 'devicon-databricks-original', imageSrc: null },
 
   // Databases
