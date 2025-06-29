@@ -5,7 +5,7 @@ const siteMetadata = {
   headerTitle: 'Akash Singh',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://https://akash-portfolio-project.vercel.app/',
+  siteUrl: 'https://akash-portfolio-project.vercel.app/',
   siteRepo: 'https://github.com/akash-git-online/akash-portfolio',
   //siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   //socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
