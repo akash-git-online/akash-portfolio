@@ -24,7 +24,7 @@ export const skillsData = [
   { name: 'Azure DevOps', iconClass: 'devicon-azure-plain', imageSrc: null },
   { name: 'GitHub Actions', iconClass: 'devicon-github-original', imageSrc: null },
   { name: 'Terraform', iconClass: 'devicon-terraform-plain', imageSrc: null },
-  { name: 'Airflow', iconClass: 'devicon-apacheairflow-plain', imageSrc: null },
+  { name: 'Airflow', iconClass: null , imageSrc: '/static/images/icons/airflow.svg' },
 
   // BI & Visualization
   { name: 'Power BI', iconClass: null , imageSrc:'/static/images/icons/Power-BI-Logo.png' },
