@@ -3,6 +3,7 @@ import Timeline from '@/components/Timeline'
 import { resumeData } from '@/data/resume/resumeData'
 import { genPageMetadata } from 'app/seo'
 import Link from '@/components/Link' // Import the Link component for the button
+import { FaLinkedin } from 'react-icons/fa'
 
 export const metadata = genPageMetadata({ title: 'My Journey' })
 
@@ -19,14 +20,14 @@ export default function Page() {
           </p>
         </div>
 
-        {/* --- NEW: Download Button Section --- */}
+        {/* --- NEW: LinkedIn Button Section --- */}
         <div className="pt-8 pb-8">
           <Link
-            href="/Akash_Singh_Resume.pdf" // Make sure this filename matches your PDF
-            download={true} // This attribute tells the browser to download the file
-            className="bg-primary-500 hover:bg-primary-600 focus:ring-primary-500 inline-block rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-2 focus:ring-offset-2 focus:outline-none dark:ring-offset-black"
+            href="https://www.linkedin.com/in/akash-singh93/"
+            className="bg-[#0A66C2] hover:bg-[#004182] focus:ring-[#0A66C2] inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-2 focus:ring-offset-2 focus:outline-none dark:ring-offset-black"
           >
-            Download Full Resume (PDF)
+            <FaLinkedin className="h-4 w-4 text-white" />
+            Say Hi on LinkedIn
           </Link>
         </div>
         {/* --- End of New Section --- */}
