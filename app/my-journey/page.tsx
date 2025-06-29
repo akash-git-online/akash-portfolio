@@ -24,7 +24,7 @@ export default function Page() {
         <div className="pt-8 pb-8">
           <Link
             href="https://www.linkedin.com/in/akash-singh93/"
-            className="bg-[#0A66C2] hover:bg-[#004182] focus:ring-[#0A66C2] inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium text-white focus:ring-2 focus:ring-offset-2 focus:outline-none dark:ring-offset-black"
+            className="inline-flex items-center gap-2 rounded-lg bg-[#0A66C2] px-4 py-2 text-sm font-medium text-white hover:bg-[#004182] focus:ring-2 focus:ring-[#0A66C2] focus:ring-offset-2 focus:outline-none dark:ring-offset-black"
           >
             <FaLinkedin className="h-4 w-4 text-white" />
             Say Hi on LinkedIn
