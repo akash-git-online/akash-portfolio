@@ -89,6 +89,16 @@ module.exports = () => {
         },
       ]
     },
+    async redirects() {
+      return [
+        // Journey was merged into the About page.
+        {
+          source: '/my-journey',
+          destination: '/about',
+          permanent: true,
+        },
+      ]
+    },
     webpack: (config, options) => {
       config.module.rules.push({
         test: /\.svg$/,

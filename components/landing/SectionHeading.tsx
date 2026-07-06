@@ -1,4 +1,5 @@
 import Link from '@/components/Link'
+import Eyebrow from '@/components/Eyebrow'
 
 interface Props {
   /** Mono eyebrow label, e.g. "featured work". */
@@ -12,10 +13,7 @@ export default function SectionHeading({ eyebrow, title, action }: Props) {
   return (
     <div className="mb-8 flex items-end justify-between gap-4">
       <div>
-        <p className="text-primary-600 dark:text-primary-400 mb-2 font-mono text-xs tracking-wide">
-          <span className="text-gray-400 dark:text-gray-600">{'// '}</span>
-          {eyebrow}
-        </p>
+        <Eyebrow label={eyebrow} className="mb-2" />
         <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
           {title}
         </h2>

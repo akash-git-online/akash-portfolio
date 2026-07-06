@@ -1,10 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Akash Singh — Data Engineer',
+  title: 'Akash Singh, Data Engineer',
   author: 'Akash Singh',
   headerTitle: 'Akash Singh',
   description:
-    'Senior Data Engineer building reliable data platforms — pipelines, warehouses, and the systems that turn raw data into decisions. Azure · Snowflake · Databricks.',
+    'Senior Data Engineer building reliable data platforms: pipelines, warehouses, and the systems that turn raw data into decisions. Azure, Snowflake, Databricks.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://akash-portfolio-project.vercel.app/',

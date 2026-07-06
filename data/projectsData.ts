@@ -42,7 +42,7 @@ const projectsData: Project[] = [
     featured: true,
   },
   {
-    title: 'Finance Data Pipeline — Single Source of Truth',
+    title: 'Finance Data Pipeline: Single Source of Truth',
     problem: 'Finance and L&D teams were working from fragmented, inconsistent data sources.',
     outcome:
       'Built robust, automated pipelines that consolidated raw data into clean, governed datasets the business could rely on.',

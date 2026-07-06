@@ -7,6 +7,7 @@ import skillsData from '@/data/skills/skillsData'
 import Hero from '@/components/landing/Hero'
 import Reveal from '@/components/landing/Reveal'
 import SectionHeading from '@/components/landing/SectionHeading'
+import Eyebrow from '@/components/Eyebrow'
 import ProjectCard from '@/components/ProjectCard'
 import { formatDate } from 'pliny/utils/formatDate'
 
@@ -34,9 +35,7 @@ export default function Page() {
       {/* Trust strip */}
       <Reveal>
         <section className="py-8">
-          <p className="mb-4 font-mono text-xs text-gray-400 dark:text-gray-600">
-            {'// '}working daily with
-          </p>
+          <Eyebrow label="working daily with" className="mb-4" />
           <ul className="flex flex-wrap gap-x-6 gap-y-3">
             {trustTech.map((t) => (
               <li key={t} className="font-mono text-sm text-gray-500 dark:text-gray-400">
@@ -125,9 +124,7 @@ export default function Page() {
       {/* Contact band */}
       <Reveal>
         <section className="py-16 text-center">
-          <p className="text-primary-600 dark:text-primary-400 mb-3 font-mono text-xs">
-            {'// '}let's build something reliable
-          </p>
+          <Eyebrow label="let's build something reliable" className="mb-3 justify-center" />
           <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
             Hiring, or need a pipeline built?
           </h2>

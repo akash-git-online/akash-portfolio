@@ -46,7 +46,7 @@ export default function ProjectCard({ title, problem, outcome, stack, metric, hr
 
   if (href) {
     return (
-      <Link href={href} aria-label={`${title} — read more`} className="block h-full">
+      <Link href={href} aria-label={`${title}: read more`} className="block h-full">
         {body}
       </Link>
     )
