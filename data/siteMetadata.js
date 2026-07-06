@@ -1,8 +1,10 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Akash Singh Portfolio',
+  title: 'Akash Singh — Data Engineer',
   author: 'Akash Singh',
   headerTitle: 'Akash Singh',
+  description:
+    'Senior Data Engineer building reliable data platforms — pipelines, warehouses, and the systems that turn raw data into decisions. Azure · Snowflake · Databricks.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://akash-portfolio-project.vercel.app/',
@@ -10,17 +12,18 @@ const siteMetadata = {
   //siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   //socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   //mastodon: 'https://mastodon.social/@mastodonuser',
-  //mail: 'address@yoursite.com',
-  //github: 'https://github.com',
- // x: 'https://twitter.com/x',
+  mail: 'singh.akash2393@gmail.com',
+  github: 'https://github.com/akash-git-online',
+  linkedin: 'https://www.linkedin.com/in/akash-singh93/',
+  // x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
-  stickyNav: false,
+  stickyNav: true,
   analytics: {
     vercelAnalytics: {
-    enabled: true,
-  },
+      enabled: true,
+    },
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
     // supports Plausible, Simple Analytics, Umami, Posthog or Google Analytics.
@@ -80,7 +83,7 @@ const siteMetadata = {
     },
   },
   search: {
-   // provider: 'kbar', // kbar or algolia
+    // provider: 'kbar', // kbar or algolia
     kbarConfig: {
       searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`, // path to load documents to search
     },

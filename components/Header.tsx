@@ -7,7 +7,8 @@ import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 
 const Header = () => {
-  let headerClass = 'flex items-center w-full bg-white dark:bg-gray-950 justify-between py-10'
+  let headerClass =
+    'flex items-center w-full justify-between py-6 bg-white/80 dark:bg-gray-950/80 backdrop-blur-sm'
   if (siteMetadata.stickyNav) {
     headerClass += ' sticky top-0 z-50'
   }
@@ -22,14 +23,17 @@ const Header = () => {
           {typeof siteMetadata.headerTitle === 'string' ? (
             <div className="hidden h-6 text-2xl font-semibold sm:block">
               {siteMetadata.headerTitle}
+              <span className="text-primary-500 cursor-blink" aria-hidden="true">
+                _
+              </span>
             </div>
           ) : (
             siteMetadata.headerTitle
           )}
         </div>
       </Link>
-      <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
+      <div className="flex items-center space-x-4 leading-5 sm:space-x-5">
+        <div className="no-scrollbar hidden items-center gap-x-5 overflow-x-auto sm:flex">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
@@ -44,6 +48,12 @@ const Header = () => {
         </div>
         <SearchButton />
         <ThemeSwitch />
+        <a
+          href={`mailto:${siteMetadata.mail}`}
+          className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 hidden rounded-md px-4 py-2 text-sm font-semibold text-white transition-colors sm:inline-block dark:text-gray-950"
+        >
+          Let's talk
+        </a>
         <MobileNav />
       </div>
     </header>

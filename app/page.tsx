@@ -1,52 +1,157 @@
-/*
 import { sortPosts, allCoreContent } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
-import Main from './Main'
+import Link from '@/components/Link'
+import siteMetadata from '@/data/siteMetadata'
+import projectsData from '@/data/projectsData'
+import skillsData from '@/data/skills/skillsData'
+import Hero from '@/components/landing/Hero'
+import Reveal from '@/components/landing/Reveal'
+import SectionHeading from '@/components/landing/SectionHeading'
+import ProjectCard from '@/components/ProjectCard'
+import { formatDate } from 'pliny/utils/formatDate'
 
-export default async function Page() {
-  const sortedPosts = sortPosts(allBlogs)
-  const posts = allCoreContent(sortedPosts)
-  return <Main posts={posts} />
-}*/
-
-// app/page.tsx
-import { Authors, allAuthors } from 'contentlayer/generated'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import AuthorLayout from '@/layouts/AuthorLayout'
-import { coreContent } from 'pliny/utils/contentlayer'
-import { genPageMetadata } from 'app/seo'
-import Skills from '@/components/Skills'
-import Certifications from '@/components/Certifications'
-
-export const metadata = genPageMetadata({ title: 'About' })
+// Key tech shown in the trust strip.
+const trustTech = [
+  'Azure',
+  'Snowflake',
+  'Databricks',
+  'dbt',
+  'Airflow',
+  'Python',
+  'Spark',
+  'Power BI',
+]
 
 export default function Page() {
-  const author = allAuthors.find((p) => p.slug === 'default') as Authors
-  const mainContent = coreContent(author)
+  const featured = projectsData.filter((p) => p.featured).slice(0, 3)
+  const posts = allCoreContent(sortPosts(allBlogs)).slice(0, 3)
+  const skillNames = skillsData.map((s) => s.name)
 
   return (
-    <AuthorLayout content={mainContent}>
-      {/* This div groups all the content in the right-hand scrollable column */}
-      <div>
-        {/* This renders your "About Me" paragraph */}
-        <MDXLayoutRenderer code={author.body.code} />
+    <div className="divide-y divide-gray-200 dark:divide-gray-800">
+      <Hero />
 
-        {/* This adds a clear dividing line with margin-top for spacing */}
-        <hr className="mt-10 mb-10 border-gray-200 dark:border-gray-700" />
+      {/* Trust strip */}
+      <Reveal>
+        <section className="py-8">
+          <p className="mb-4 font-mono text-xs text-gray-400 dark:text-gray-600">
+            {'// '}working daily with
+          </p>
+          <ul className="flex flex-wrap gap-x-6 gap-y-3">
+            {trustTech.map((t) => (
+              <li key={t} className="font-mono text-sm text-gray-500 dark:text-gray-400">
+                {t}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </Reveal>
 
-        {/* This is the container for your skills */}
-        <div className="mb-12">
-          <Skills />
+      {/* Featured work */}
+      <section className="py-14">
+        <Reveal>
+          <SectionHeading
+            eyebrow="featured work"
+            title="Selected case studies"
+            action={{ href: '/projects', label: 'All projects' }}
+          />
+        </Reveal>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {featured.map((p, i) => (
+            <Reveal key={p.title} delay={i * 80}>
+              <ProjectCard {...p} />
+            </Reveal>
+          ))}
         </div>
+      </section>
 
-        {/* This adds another dividing line */}
-        <hr className="mb-10 border-gray-200 dark:border-gray-700" />
+      {/* Skills snapshot */}
+      <section className="py-14">
+        <Reveal>
+          <SectionHeading
+            eyebrow="the toolbox"
+            title="Skills & technologies"
+            action={{ href: '/about', label: 'Full profile' }}
+          />
+        </Reveal>
+        <Reveal>
+          <ul className="flex flex-wrap gap-2">
+            {skillNames.map((name) => (
+              <li
+                key={name}
+                className="rounded-md border border-gray-200 px-3 py-1.5 font-mono text-sm text-gray-600 dark:border-gray-800 dark:text-gray-300"
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </section>
 
-        {/* This is the container for your certifications */}
-        <div>
-          <Certifications />
-        </div>
-      </div>
-    </AuthorLayout>
+      {/* Selected writing */}
+      {posts.length > 0 && (
+        <section className="py-14">
+          <Reveal>
+            <SectionHeading
+              eyebrow="writing"
+              title="From the blog"
+              action={{ href: '/blog', label: 'All posts' }}
+            />
+          </Reveal>
+          <ul className="divide-y divide-gray-200 dark:divide-gray-800">
+            {posts.map((post) => (
+              <Reveal key={post.slug}>
+                <li className="py-5">
+                  <Link href={`/blog/${post.slug}`} className="group block">
+                    <p className="font-mono text-xs text-gray-400 dark:text-gray-600">
+                      {formatDate(post.date, siteMetadata.locale)}
+                    </p>
+                    <h3 className="group-hover:text-primary-600 dark:group-hover:text-primary-400 mt-1 text-lg font-bold text-gray-900 dark:text-gray-100">
+                      {post.title}
+                    </h3>
+                    {post.summary && (
+                      <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                        {post.summary}
+                      </p>
+                    )}
+                  </Link>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      {/* Contact band */}
+      <Reveal>
+        <section className="py-16 text-center">
+          <p className="text-primary-600 dark:text-primary-400 mb-3 font-mono text-xs">
+            {'// '}let's build something reliable
+          </p>
+          <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl dark:text-gray-100">
+            Hiring, or need a pipeline built?
+          </h2>
+          <p className="mx-auto mt-3 max-w-md text-gray-500 dark:text-gray-400">
+            I'm open to data engineering roles and freelance work. Let's talk about your data.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a
+              href={`mailto:${siteMetadata.mail}`}
+              className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 rounded-md px-6 py-3 text-sm font-semibold text-white transition-colors dark:text-gray-950"
+            >
+              Email me
+            </a>
+            <a
+              href={siteMetadata.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              className="hover:border-primary-500 hover:text-primary-600 dark:hover:text-primary-400 rounded-md border border-gray-300 px-6 py-3 text-sm font-semibold text-gray-900 transition-colors dark:border-gray-700 dark:text-gray-100"
+            >
+              Connect on LinkedIn
+            </a>
+          </div>
+        </section>
+      </Reveal>
+    </div>
   )
 }

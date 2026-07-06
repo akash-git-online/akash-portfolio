@@ -7,22 +7,24 @@
 /* Core theme configuration */
 @theme {
   /* Font families */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
   /* Colors */
-  /* Copied from https://tailwindcss.com/docs/theme#default-theme-variable-reference */
-  --color-primary-50: oklch(0.971 0.014 343.198);
-  --color-primary-100: oklch(0.948 0.028 342.258);
-  --color-primary-200: oklch(0.899 0.061 343.231);
-  --color-primary-300: oklch(0.823 0.12 346.018);
-  --color-primary-400: oklch(0.718 0.202 349.761);
-  --color-primary-500: oklch(0.656 0.241 354.308);
-  --color-primary-600: oklch(0.592 0.249 0.584);
-  --color-primary-700: oklch(0.525 0.223 3.958);
-  --color-primary-800: oklch(0.459 0.187 3.815);
-  --color-primary-900: oklch(0.408 0.153 2.432);
-  --color-primary-950: oklch(0.284 0.109 3.907);
+  /* Primary = "data pulse" teal ramp — the site's technical accent color. */
+  --color-primary-50: oklch(0.984 0.014 180.72);
+  --color-primary-100: oklch(0.953 0.051 180.801);
+  --color-primary-200: oklch(0.91 0.096 180.426);
+  --color-primary-300: oklch(0.855 0.138 181.071);
+  --color-primary-400: oklch(0.777 0.152 181.912);
+  --color-primary-500: oklch(0.704 0.14 182.503);
+  --color-primary-600: oklch(0.6 0.118 184.704);
+  --color-primary-700: oklch(0.511 0.096 186.391);
+  --color-primary-800: oklch(0.437 0.078 188.216);
+  --color-primary-900: oklch(0.386 0.063 188.416);
+  --color-primary-950: oklch(0.277 0.046 192.524);
 
   --color-gray-50: oklch(0.985 0.002 247.839);
   --color-gray-100: oklch(0.967 0.003 264.542);
@@ -172,4 +174,88 @@ input:-webkit-autofill:focus {
 .linkicon {
   display: inline-block;
   vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------------------
+   Data-viz motif: animations for the pipeline hero + section accents.
+   Pure CSS — no animation library. Respects prefers-reduced-motion.
+--------------------------------------------------------------------------- */
+
+/* Packets travelling along SVG pipeline paths (uses pathLength=1 on the path) */
+@keyframes data-flow {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: -1;
+  }
+}
+
+.data-flow {
+  stroke-dasharray: 0.08 0.92;
+  stroke-dashoffset: 1;
+  animation: data-flow 3.2s linear infinite;
+}
+
+/* Soft pulse for pipeline nodes */
+@keyframes node-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.node-pulse {
+  animation: node-pulse 2.4s ease-in-out infinite;
+}
+
+/* Blinking terminal cursor */
+@keyframes cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: cursor-blink 1.1s step-end infinite;
+}
+
+/* Scroll reveal: sections start hidden, .is-visible fades/slides them in */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .data-flow,
+  .node-pulse,
+  .cursor-blink {
+    animation: none;
+  }
+
+  .data-flow {
+    stroke-dasharray: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

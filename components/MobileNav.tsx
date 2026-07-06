@@ -5,6 +5,7 @@ import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'bo
 import { Fragment, useState, useEffect, useRef } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import siteMetadata from '@/data/siteMetadata'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -82,6 +83,13 @@ const MobileNav = () => {
                     {link.title}
                   </Link>
                 ))}
+                <a
+                  href={`mailto:${siteMetadata.mail}`}
+                  className="bg-primary-600 dark:bg-primary-500 mt-4 rounded-md px-6 py-3 text-xl font-bold text-white dark:text-gray-950"
+                  onClick={onToggleNav}
+                >
+                  Let's talk
+                </a>
               </nav>
 
               <button
